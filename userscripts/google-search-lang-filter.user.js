@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name Google Search Language Filter Plus
+// @author       Leo
 // @include https://www.google.com/*
 // @grant none
 // ==/UserScript==
