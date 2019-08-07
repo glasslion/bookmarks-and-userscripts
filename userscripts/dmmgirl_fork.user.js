@@ -2,9 +2,9 @@
 // @name           DMMGirl
 // @namespace      null
 // @description    DMM.R18/mono/dvd tweak for non-member: show big cover, preload sample picture, local wishlist, remove member functions...
-// @version        1.1.4
+// @version        1.1.7
 // @grant          GM_addStyle
-// @include        http://www.dmm.co.jp/*
+// @include        http*://www.dmm.co.jp/*
 // @include        http://www.dmm.co.jp/mono/dvd/-/list/*
 // @include        http://www.dmm.co.jp/top/-/error/area/*
 // @include        http://www.dmm.co.jp/mono/dvd/-/detail/=/cid=*
@@ -111,7 +111,7 @@ var detail = {
     view.href = '/top/-/error/area/';
     view.textContent = 'View Wishlist';
     var search = document.createElement('a');
-    search.href = 'https://www.google.com/#q=' + getCid(location.pathname, true)[0];
+    search.href = 'https://www.google.com/#q=' + getCid(location.pathname, true)[0]+'+torrent';
     search.target = '_blank';
     search.textContent = 'Google It';
 
