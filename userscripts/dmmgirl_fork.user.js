@@ -116,7 +116,7 @@ var detail = {
     search.textContent = 'Google It';
 
 	var btso = document.createElement('a');
-    btso.href = 'https://btsow.pw/search/' + getCid(location.pathname, true)[0];
+    btso.href = 'https://btspread.com/search/' + getCid(location.pathname, true)[0];
     btso.target = '_blank';
     btso.textContent = 'BTSOW';
 
