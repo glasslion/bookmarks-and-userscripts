@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Auto Reconnect Google Colab 
 // @namespace https://github.com/glasslion/
-// @version 1.0
+// @version 1.1
 // @description Automatically reconnect to Colab's session without clicking button.
 // @author PartMent
 // @match https://colab.research.google.com/*
@@ -12,9 +12,10 @@
 // @grant none
 // ==/UserScript==
 
+
 //Keep Page Active
 
-setTimeout(function () {
+setInterval(function () {
     var ok = document.getElementById('connect');
     if(ok.textContent.includes("重新连接") || ok.textContent.includes("Connect") || ok.textContent.includes("connect") || ok.textContent.includes("CONNECT")) {
         console.log('Reconnecting...');
