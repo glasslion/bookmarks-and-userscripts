@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <style>
+    body {
+      background: black;
+    }
+
+    .clock {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      color: #17D4FE;
+      font-size: 80px;
+      font-family: Orbitron;
+      letter-spacing: 7px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+
+  <script>
+    var start_time;
+
+    function pad_zero(n) {
+      return n.toString().padStart(2, "0")
+    }
+
+    function formatTimestamp(ts) {
+      // 一个番茄钟(25分钟) 剩余的时间
+      r = 25 * 60 - ts
+      minutes = Math.floor(r/60)
+      seconds = Math.abs(r % 60)
+      return `${minutes}:${seconds}`
+    }
+
+    function showClock() {
+      current_time = Math.round(new Date().getTime() / 1000)
+      diff_time = current_time - start_time
+      text = formatTimestamp(diff_time)
+
+      document.getElementById("MyClockDisplay").innerText = text;
+      document.getElementById("MyClockDisplay").textContent = text;
+
+    }
+
+    function main() {
+      $.getJSON('https://evpa45vxd2.execute-api.us-west-2.amazonaws.com/dev/webhook/pomodoro-current', function(data) {
+        start_time = data['start_time']
+      })
+      
+      setInterval(showClock, 1000);
+
+    }
+    
+    main()
+  </script>
+</body>
+</html>
